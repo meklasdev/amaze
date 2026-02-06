@@ -1,0 +1,12 @@
+[package]
+name = "amaze_tui"
+version = "0.1.0"
+edition = "2021"
+authors = ["meklasdev <[meklasdev@gmail.com]>"]
+description = "Pathfinding Visualizer | Rust TUI | Algorithms in Action"
+
+[dependencies]
+ratatui = "0.26"
+crossterm = "0.27"
+rand = "0.8"
+anyhow = "1.0"
