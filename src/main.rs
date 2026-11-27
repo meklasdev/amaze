@@ -107,7 +107,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             if let Event::Key(key) = event::read()? {
                 match key.code {
                     KeyCode::Char('q') => break,
-                    KeyCode::Space => {
+                    KeyCode::Char(' ') => {
                         // Generate new maze
                         app.maze.generate();
                         app.solver = None;

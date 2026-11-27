@@ -1,5 +1,4 @@
 use ratatui::{
-    backend::Backend,
     layout::{Constraint, Direction, Layout, Rect},
     style::{Color, Style, Modifier},
     widgets::{Block, Borders, Paragraph},
@@ -8,7 +7,7 @@ use ratatui::{
 use crate::maze::{Maze, Cell};
 use crate::solver::Solver;
 
-pub fn draw<B: Backend>(f: &mut Frame<B>, maze: &Maze, solver: &Option<Solver>, algorithm_name: &str) {
+pub fn draw(f: &mut Frame<'_>, maze: &Maze, solver: &Option<Solver>, algorithm_name: &str) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
@@ -35,7 +34,7 @@ pub fn draw<B: Backend>(f: &mut Frame<B>, maze: &Maze, solver: &Option<Solver>, 
     draw_maze(f, maze_area, maze, solver);
 }
 
-fn draw_maze<B: Backend>(f: &mut Frame<B>, area: Rect, maze: &Maze, solver: &Option<Solver>) {
+fn draw_maze(f: &mut Frame<'_>, area: Rect, maze: &Maze, solver: &Option<Solver>) {
     // Calculate cell size
     // We want to fit maze.width in area.width and maze.height in area.height
     // Since characters are roughly 1x2 pixel-wise, usually 2 chars per cell width looks square-ish.
